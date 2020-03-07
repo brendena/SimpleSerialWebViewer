@@ -8,8 +8,6 @@ import { connect } from 'react-redux';
 class KeyWordDisplay extends React.Component{
   constructor(props){
     super(props);
-    this.state = {
-    }
   }
   render (){
     return(

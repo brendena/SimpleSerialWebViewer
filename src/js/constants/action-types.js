@@ -1,1 +1,2 @@
 export const ADD_KEYWORD = "ADD_KEYWORD";
+export const ADD_SERIAL_RESPONSE = "ADD_SERIAL_RESPONSE";

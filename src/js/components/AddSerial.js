@@ -1,6 +1,7 @@
 import React from 'react';
 import  store  from "../store/index"
 
+import * as Actions from '../actions/index'
 import { connect } from 'react-redux';
 
 
@@ -50,11 +51,23 @@ class AddSerial extends React.Component{
   }
   async getData(reader){
     await reader.read()
+    let response = '';
     while(true){
       const { value, done } = await reader.read();
+
+      store.dispatch(Actions.addSerialResponse(value));
+      /*
       if (value) {
-        console.log(value);
+        console.log(value)
+        response += value;
       }
+      console.log(done)
+      if (done === true) {
+        console.log(response)
+        store.dispatch(Actions.AddSerial(response));
+        response = "";
+      }
+      */
     }
     
   }

@@ -29,6 +29,10 @@ function rootReducer(state = initialState, action){
         {
             draft.propsPage.keyWords.push(action.payload);
         }
+        else if(action.type === consts.ADD_SERIAL_RESPONSE)
+        {
+            draft.propsPage.logs["uart1"].push(action.payload);
+        }
     });
 
 
