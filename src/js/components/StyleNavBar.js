@@ -46,13 +46,13 @@ class StyleNavBar extends React.Component{
             })}
           </div>
           <div id="addKeyWords">
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} id="submitKeywordInput">
               <label for="keyWordsInput">key word to find:</label>
               <input type="text" id="keyWordsInput" name="keyWordsInput" size="10" required
                      value={this.state.keywordData.keyword} onChange={this.handleChangeKeyword}></input>
 
 
-              <input type="color" id="Highlight" name="Highlight" required
+              <input type="color" id="Highlight" name="Highlight" className="colorSelector" required
                      value={this.state.keywordData.color} onChange={this.handleChangeColor}></input>
               <label for="Highlight" >Highlight color</label>
 

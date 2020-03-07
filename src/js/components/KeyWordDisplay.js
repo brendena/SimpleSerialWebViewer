@@ -9,9 +9,21 @@ class KeyWordDisplay extends React.Component{
   constructor(props){
     super(props);
   }
+  handleChangeColor(){
+
+  }
   render (){
     return(
-        <div>{this.props.keyword} color - {this.props.color} </div>);
+      <div class="displayKeyWords">
+        
+        <input type="color" id="Highlight" name="Highlight" className="colorSelector"
+                      value={this.props.color} onChange={this.handleChangeColor}></input>
+
+
+        {this.props.keyword}  
+      
+        
+      </div>);
   };
 }
 

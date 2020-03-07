@@ -1,7 +1,9 @@
+import * as log from 'loglevel';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import RenderUI from './js/components/index'
 
-RenderUI();
+log.setDefaultLevel("trace")
+//log.setDefaultLevel("warn")
 
-console.log("testing this out");
+RenderUI();

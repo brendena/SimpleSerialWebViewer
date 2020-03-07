@@ -31,7 +31,7 @@ class LineData extends React.Component{
       "backgroundColor":foundColor
     } 
     return(
-        <div>
+        <div class="lineData">
           <Highlighter
             highlightStyle={style}
             searchWords={[foundWord]}

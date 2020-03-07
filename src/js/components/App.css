@@ -66,3 +66,29 @@ h1{
     box-sizing: border-box;
     overflow: scroll;
 }
+.displayKeyWords{
+    padding:10px;
+}
+
+.colorSelector{
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+#submitKeywordInput
+{
+    display:flex;
+    flex-direction:column;
+    border-top: 1px;
+    background-color: #77bfbf;
+    padding: 30px;
+}
+
+.lineData{
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+svg{
+    padding-left:30px;
+}
