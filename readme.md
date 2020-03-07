@@ -1,3 +1,5 @@
+# [Online viewer]( https://brendena.github.io/SimpleSerialWebViewer/)
+
 Running in a normal browser
 currently only supported in chrome with this flag - #enable-experimental-web-platform-features
 
