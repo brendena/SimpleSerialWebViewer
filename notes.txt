@@ -1,0 +1,9 @@
+web serial
+Examples - https://github.com/yaakov-h/uniden-web-controller/blob/master/serial.js
+write up - https://blog.yaakov.online/accessing-com-ports-from-a-web-page/
+
+
+This will not work on linux without adding usb to your user
+sudo usermod -a -G dialout $USER
+https://support.mosaicmfg.com/hc/en-us/articles/115004996014-Enabling-USB-Serial-Port-Permissions-on-Linux
+
