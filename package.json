@@ -4,6 +4,7 @@
   "main": "main.js",
   "scripts": {
     "start:autoRefresh": "webpack-dev-server --config webpack/base.config.js",
+    "start:build": "webpack --config webpack/base.config.js",
     "electron_start": "electron ."
   },
   "devDependencies": {

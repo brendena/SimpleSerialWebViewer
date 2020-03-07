@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+  </head>
+  <body>
+    <div id="root">
+
+    </div>
+    <div id="container">
+
+    </div>
+    <script>
+        console.log("test")
+        console.log(navigator.serial)
+    </script>
+  <script type="text/javascript" src="contentScript.js"></script></body>
+</html>
