@@ -17,6 +17,6 @@ export function actionClearLog(payload) {
     return { type: consts.ACTION_ClEAR_LOGS, payload }
 };
 
-export function actionPauseLog(payload) {
-    return { type: consts.ACTION_ClEAR_LOGS, payload }
+export function changeUartDeviceState(payload) {
+    return { type: consts.CHANGE_UART_DEVICE_STATE, payload }
 };

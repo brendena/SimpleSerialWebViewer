@@ -21,7 +21,7 @@ h1{
 }
 #addSerial{
     background-color:var(--arduinoDeepBlue); 
-    grid-column-start: 1;
+    grid-column-start: 2;
     grid-column-end: last-line;
     grid-row-start: 1;
     grid-row-end: 2;
@@ -51,7 +51,7 @@ h1{
 #serialOutputContainer{
     display:flex;
     background-color:white; 
-    grid-row-start: 2;
+    grid-row-start: 1;
     grid-row-end: 3; 
     grid-column-start: 1;
     grid-column-end: 2;
@@ -64,7 +64,12 @@ h1{
     height:100%;
     flex-grow:1;
     box-sizing: border-box;
-    overflow: scroll;
+    /*overflow: scroll;*/
+    display:flex;
+    flex-direction:column;
+}
+.lineDataContainer{
+    flex-grow:1;
 }
 .displayKeyWords{
     padding:10px;

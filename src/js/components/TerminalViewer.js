@@ -1,9 +1,10 @@
 import React from 'react';
 import  store  from "../store/index"
+import * as constTypes from "../constants/constsTypes"
+import TerminalHeader from "./TerminalHeader"
 
+import { List, AutoSizer, CellMeasurer } from "react-virtualized";
 import * as Actions from '../actions/index'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPause, faPlay, faBolt, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import { connect } from 'react-redux';
 import LineData from "./LineData";
@@ -19,36 +20,74 @@ class TerminalViewer extends React.Component{
     super(props);
     this.state = {
     }
-    this.clearLogs = this.clearLogs.bind(this);
-  }
-  clearLogs(){
-    console.log("clearLogs")
-    store.dispatch(Actions.actionClearLog(this.props.uartDevice.uartName));
+
+    this.renderRow = this.renderRow.bind(this);
   }
 
-  pauseLogs(){
-    console.log("pauseLogs")
-    console.log("going to need a middle working for this")
-    //store.dispatch(Actions.actionClearLog(this.props.uartDevice.uartName));
+  renderRow({ index, key, style }) {
+    return (
+      <div key={key} style={style} className="row">
+        <LineData data={this.props.logs["uart1"][index]}  > </LineData> 
+      </div>
+      
+    );
   }
-
 
   render (){
     return(
         <div class="terminalViewer">
-          <h1>{this.props.uartDevice.uartName} - {this.props.uartDevice.baudRate}
-              <FontAwesomeIcon icon={faPause} onClick={this.pauseLogs} />
+          <TerminalHeader uartDevice={this.props.uartDevice} />
+          <div class="lineDataContainer">
+          
+          <AutoSizer>
+          {
+            ({ width, height }) => {
+            return <List
+            width={width}
+            height={height}
+            rowHeight={30}
+            rowRenderer={this.renderRow}
+            rowCount={this.props.logs["uart1"].length} 
+            overscanRowCount={3} />
+            }
+          }
+          </AutoSizer>
 
-              <FontAwesomeIcon icon={faBolt}  onClick={this.clearLogs}/>
-              <FontAwesomeIcon icon={faTimes}/>
-          </h1>
-          <div>
-            {this.props.logs[this.props.uartDevice.uartName].map((value, index) => {
-                return <LineData key={index} data={value} > </LineData> 
-            })}
           </div>
         </div>);
   };
 }
+/*
+<AutoSizer>
+{
+  ({ width, height }) => {
+  return <List
+  width={width}
+  height={height}
+  rowHeight={30}
+  rowRenderer={this.renderRow}
+  rowCount={this.props.logs["uart1"].length} 
+  overscanRowCount={3} />
+  }
+}
+</AutoSizer>
 
+<List
+width={800}
+height={600}
+rowHeight={30}
+rowRenderer={this.renderRow}
+rowCount={this.props.logs["uart1"].length} />
+
+
+<div>
+  {this.props.logs[this.props.uartDevice.uartName].map((value, index) => {
+      return <LineData key={index} data={value} > </LineData> 
+  })}
+</div>
+
+
+          <div>{this.props.logs["uart1"][index].name}</div>
+          <div>{this.props.logs["uart1"][index].text}</div>
+*/
 export default TerminalViewer;

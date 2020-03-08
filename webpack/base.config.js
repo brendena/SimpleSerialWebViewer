@@ -10,10 +10,10 @@ module.exports = {
     contentScript: "./src/index.js",
   },
   output: {
-    path: path.resolve(__dirname + '/../dist'),
+    path: path.resolve(__dirname + '/../docs'),
     filename: '[name].js',
   },
-  mode: "production",// development //production
+  mode: "development",// development //production
   devtool:"source-map",
 	optimization: {
 		minimize: false

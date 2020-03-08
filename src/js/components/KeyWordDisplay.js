@@ -14,7 +14,7 @@ class KeyWordDisplay extends React.Component{
   }
   render (){
     return(
-      <div class="displayKeyWords">
+      <div className="displayKeyWords">
         
         <input type="color" id="Highlight" name="Highlight" className="colorSelector"
                       value={this.props.color} onChange={this.handleChangeColor}></input>

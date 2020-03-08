@@ -1,4 +1,5 @@
 import * as consts from "../constants/action-types";
+import * as constTypes from "../constants/constsTypes"
 import * as log from 'loglevel';
 import produce from "immer";
 import KeyWordData from "../types/KeyWordData";
@@ -24,7 +25,10 @@ const initialState = {
         uartDevices:[
             //new UartDevice("uart1",4800),
             //new UartDevice("uart2",4800)
-        ]     
+        ],
+        uartDeviceState:{
+            "uart1": constTypes.StateUARTDevice.unconnected
+        }     
     }
 };
 
@@ -39,7 +43,10 @@ function rootReducer(state = initialState, action){
         }
         else if(action.type === consts.ADD_SERIAL_RESPONSE)
         {
-            draft.propsPage.logs["uart1"].push(action.payload);
+            if(draft.propsPage.uartDeviceState["uart1"] != constTypes.StateUARTDevice.paused){
+                draft.propsPage.logs["uart1"].unshift(action.payload);
+                //draft.propsPage.logs["uart1"].push(action.payload);
+            }
         }
         else if(action.type === consts.ADD_UART_DEVICE)
         {
@@ -49,6 +56,10 @@ function rootReducer(state = initialState, action){
         {
             console.log(action.payload)
             draft.propsPage.logs[action.payload] = [];
+        }
+        else if(action.type === consts.CHANGE_UART_DEVICE_STATE){
+            draft.propsPage.uartDeviceState["uart1"] = action.payload["state"];
+            console.log(draft.propsPage.uartDeviceState["uart1"])
         }
     });
 
